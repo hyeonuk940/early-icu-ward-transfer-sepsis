@@ -1,0 +1,13 @@
+cohort,model,auc,cal_slope,brier,sens,spec,threshold
+Internal test (MIMIC-IV),LightGBM (primary),0.809 (0.798-0.820),0.971,0.163,0.733,0.723,0.396
+Internal test (MIMIC-IV),Random Forest,0.793 (0.780-0.804),1.506,0.174,0.721,0.721,0.423
+Internal test (MIMIC-IV),XGBoost,0.808 (0.797-0.819),0.914,0.164,0.721,0.735,0.401
+Internal test (MIMIC-IV),APS III alone,0.660 (0.645-0.675),0.874,0.211,0.555,0.660,0.466
+External: Sepsis-3 (eICU),LightGBM (primary),0.711 (0.690-0.732),0.631,0.220,0.348,0.851,0.396
+External: Sepsis-3 (eICU),Random Forest,0.724 (0.703-0.745),1.498,0.201,0.534,0.764,0.423
+External: Sepsis-3 (eICU),XGBoost,0.730 (0.708-0.750),0.614,0.224,0.291,0.890,0.401
+External: Sepsis-3 (eICU),APS III alone,0.651 (0.628-0.673),0.669,0.225,0.154,0.938,0.466
+External: alternative (eICU),LightGBM (primary),0.726 (0.718-0.734),0.741,0.234,0.395,0.835,0.396
+External: alternative (eICU),Random Forest,0.736 (0.728-0.745),1.551,0.210,0.627,0.714,0.423
+External: alternative (eICU),XGBoost,0.730 (0.722-0.738),0.620,0.251,0.309,0.890,0.401
+External: alternative (eICU),APS III alone,0.661 (0.652-0.670),0.775,0.237,0.202,0.918,0.466

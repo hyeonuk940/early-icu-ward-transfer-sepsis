@@ -1,0 +1,4 @@
+set,n,events,event_rate,non_events
+"Development set (2008-2010, 2011-2013, 2014-2016)",17063,7391,0.433,9672
+"Temporal internal test set (2017-2019, 2020-2022)",5762,1848,0.321,3914
+MIMIC-IV landmark cohort (total),22825,9239,0.405,13586

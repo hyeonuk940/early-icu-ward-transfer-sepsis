@@ -1,0 +1,11 @@
+reference,compared,external_delong_p,holm_adj_p
+CatBoost,XGBoost,0.0046,0.0137
+CatBoost,LightGBM,0.6332,0.6332
+CatBoost,RF,0.0061,0.0137
+CatBoost,SVM,0.0,0.0
+CatBoost,AdaBoost,0.0,0.0
+CatBoost,LR,0.0,0.0
+CatBoost,DT,0.0,0.0
+CatBoost,MLP,0.0,0.0
+CatBoost,KNN,0.0,0.0
+CatBoost,GNB,0.0,0.0

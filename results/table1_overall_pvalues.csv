@@ -1,0 +1,11 @@
+cohort,variable,k,p,test
+MIMIC-IV,Sex,1,—,—
+MIMIC-IV,Race,5,<0.001,chi-squared
+MIMIC-IV,Admission type,3,<0.001,chi-squared
+MIMIC-IV,"CCI (0/1/2/>=3, complete)",4,<0.001,chi-squared
+eICU primary,Sex,1,—,—
+eICU primary,Race,5,0.130,chi-squared
+eICU primary,Admission type,3,<0.001,chi-squared
+eICU primary,"CCI (0/1/2/>=3, complete)",4,<0.001,chi-squared
+eICU primary,CCI (incl. missing level),5,<0.001,chi-squared
+eICU primary,CCI missing vs observed,2,0.008,chi-squared

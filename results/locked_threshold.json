@@ -1,0 +1,10 @@
+{
+  "lightgbm": 0.396,
+  "apsiii": 0.466,
+  "hyperparams": {
+    "learning_rate": 0.05,
+    "min_child_samples": 50,
+    "n_estimators": 300,
+    "num_leaves": 15
+  }
+}

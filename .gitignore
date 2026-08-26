@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────────────────────
+#  PATIENT-LEVEL DATA — NEVER COMMIT
+#  MIMIC-IV and eICU-CRD are credentialed PhysioNet resources.
+#  Their data use agreements prohibit redistribution. Obtain access
+#  at https://physionet.org and regenerate these files with sql/.
+# ─────────────────────────────────────────────────────────────
+data/
+manuscript/
+scratch/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp

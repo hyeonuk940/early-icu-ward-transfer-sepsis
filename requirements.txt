@@ -1,0 +1,26 @@
+# Verified environment for the reanalysis pipeline.
+#
+# Pinned exactly, because library versions change results. The clearest example
+# is scikit-learn: AdaBoost's default algorithm changed from SAMME.R to SAMME in
+# version 1.6, which moves that model's development-CV AUC from 0.788 to 0.780.
+# Re-running with unpinned versions will not reproduce the published numbers.
+#
+# Python 3.11 was used for verification; the pinned stack also supports 3.10-3.12.
+#     python -m venv .venv
+#     .venv/Scripts/activate      # Windows
+#     source .venv/bin/activate   # macOS / Linux
+#     pip install -r requirements.txt
+
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+
+lightgbm==4.6.0
+xgboost==3.1.3
+catboost==1.2.8
+shap==0.49.1
+
+lifelines==0.30.3
+matplotlib==3.10.8
+python-docx==1.2.0

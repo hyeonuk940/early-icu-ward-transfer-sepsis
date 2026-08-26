@@ -1,0 +1,13 @@
+cohort,model,cal_intercept,cal_slope
+Temporal internal test (MIMIC-IV),LightGBM (primary),-0.17,0.971
+Temporal internal test (MIMIC-IV),Random Forest,-0.14,1.506
+Temporal internal test (MIMIC-IV),XGBoost,-0.172,0.914
+Temporal internal test (MIMIC-IV),Severity score alone,-0.439,0.874
+Primary external (eICU),LightGBM (primary),0.585,0.741
+Primary external (eICU),Random Forest,0.385,1.551
+Primary external (eICU),XGBoost,0.709,0.62
+Primary external (eICU),Severity score alone,0.369,0.775
+Sepsis-3 sensitivity (eICU),LightGBM (primary),0.31,0.631
+Sepsis-3 sensitivity (eICU),Random Forest,0.23,1.498
+Sepsis-3 sensitivity (eICU),XGBoost,0.478,0.614
+Sepsis-3 sensitivity (eICU),Severity score alone,0.145,0.669

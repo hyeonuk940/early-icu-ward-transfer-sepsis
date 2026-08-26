@@ -1,0 +1,5 @@
+model,n_vars,dev_cv_auc,internal_auc,eicu_primary_auc,eicu_alt_auc
+A_APSIII_alone,1,0.684,0.66,0.651,0.661
+B_raw_no_APSIII,55,0.805,0.8,0.738,0.745
+C_APSIII_nonoverlap,23,0.782,0.774,0.68,0.686
+D_full,56,0.812,0.809,0.711,0.726

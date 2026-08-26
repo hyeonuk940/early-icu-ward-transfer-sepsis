@@ -1,0 +1,4 @@
+cohort,n_features,parsimonious_auc,full_auc
+internal,19,0.803,0.809
+eICU primary,19,0.698,0.711
+eICU alt,19,0.709,0.726
