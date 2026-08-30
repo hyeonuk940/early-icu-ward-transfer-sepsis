@@ -47,7 +47,7 @@ def run(TARGET, label):
     print(f"\n===== TARGET = {label} =====")
     for nm,d in [("MIMIC internal test",itest),
                  ("eICU primary(Sepsis-3)",eicu[eicu.sepsis3_primary==1]),
-                 ("eICU alternative",eicu[eicu.sepsis_admitdx==1])]:
+                 ("eICU primary",eicu[eicu.sepsis_admitdx==1])]:
         pm=model.predict_proba(d[feats])[:,1]; pa=aps.predict_proba(d[["apsiii"]].fillna(med))[:,1]
         a_m,a_a,pval=delong(d[TARGET],pm,pa)
         print(f"  {nm:24s} LGB={a_m:.3f}  APSIII={a_a:.3f}  diff={a_m-a_a:+.3f}  DeLong p={pval:.4f}")

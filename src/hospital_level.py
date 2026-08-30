@@ -1,4 +1,4 @@
-"""Hospital-level transportability on eICU alternative cohort.
+"""Hospital-level transportability on the eICU primary cohort.
 Locked LightGBM (MIMIC dev). Per-hospital AUC (n>=25, >=5 events & >=5 non-events),
 Hanley-McNeil SE, DerSimonian-Laird random-effects pooling on logit-AUC scale ->
 pooled AUC + 95% CI + 95% PREDICTION INTERVAL. Per-site event rate & calibration intercept.

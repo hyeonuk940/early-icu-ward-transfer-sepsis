@@ -1,6 +1,6 @@
 -- =====================================================================
 -- eICU Stage A: base cohort (first ICU stay per hospital stay) + outcome
---   + alternative-cohort sepsis flag (APACHE sepsis admission dx, no culture)
+--   + primary-cohort sepsis flag (APACHE sepsis admission dx, no culture)
 -- Design mirrors MIMIC: 24h landmark, deaths retained,
 -- composite safe ICU->ward transfer, readmission & death within 7d.
 -- Timeline: all offsets in minutes; hosp-timeline unit intime = -hospitaladmitoffset.
@@ -50,7 +50,7 @@ WITH readmit AS (
    AND o.patientunitstayid <> i.patientunitstayid
   GROUP BY i.patientunitstayid
 ),
-altdx AS (  -- alternative cohort: APACHE sepsis admission diagnosis
+altdx AS (  -- primary cohort: APACHE sepsis admission diagnosis
   SELECT DISTINCT patientunitstayid, 1 AS sepsis_admitdx
   FROM eicu_crd.admissiondx WHERE admitdxpath ~* 'sepsis|septic'
 ),

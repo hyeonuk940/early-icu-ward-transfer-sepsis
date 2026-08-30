@@ -84,8 +84,8 @@ def main():
               f"-- nested_cv.py and downstream scripts must be re-checked.")
 
     rows=[]
-    for coh,d in [("Internal test (MIMIC-IV)",itest),("External: Sepsis-3 (eICU)",ep),
-                  ("External: alternative (eICU)",ea)]:
+    for coh,d in [("Internal test (MIMIC-IV)",itest),("External: Sepsis-3 sensitivity (eICU)",ep),
+                  ("External: primary (eICU)",ea)]:
         for nm,(mdl,X,thr) in models.items():
             r=row(nm,d[T].values,mdl.predict_proba(X(d))[:,1],thr);r["cohort"]=coh;rows.append(r)
     df=pd.DataFrame(rows)[["cohort","model","auc","cal_slope","brier","sens","spec","threshold"]]

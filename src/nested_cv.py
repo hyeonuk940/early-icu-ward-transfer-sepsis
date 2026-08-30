@@ -128,8 +128,8 @@ def main():
 
     print("\n[Evaluate locked LightGBM once per cohort]:")
     rows = []
-    for nm, d in [("MIMIC internal test", itest), ("eICU primary (Sepsis-3)", e_prim),
-                  ("eICU alternative", e_alt)]:
+    for nm, d in [("MIMIC internal test", itest), ("eICU Sepsis-3 sensitivity", e_prim),
+                  ("eICU primary", e_alt)]:
         r, _ = evaluate(nm, model, thr, d[feats], d[TARGET]); rows.append(r)
 
     # APS III baseline (LR on apsiii; median-impute from dev)
@@ -140,8 +140,8 @@ def main():
     aps_oof = cross_val_predict(LogisticRegression(), aps_X(dev), ydev, cv=5,
                                 method="predict_proba")[:, 1]
     aps_thr = youden_threshold(ydev, aps_oof)
-    for nm, d in [("MIMIC internal test", itest), ("eICU primary (Sepsis-3)", e_prim),
-                  ("eICU alternative", e_alt)]:
+    for nm, d in [("MIMIC internal test", itest), ("eICU Sepsis-3 sensitivity", e_prim),
+                  ("eICU primary", e_alt)]:
         p = aps.predict_proba(aps_X(d))[:, 1]
         auc = roc_auc_score(d[TARGET], p); lo, hi = bootstrap_ci(d[TARGET], p)
         rows.append(dict(cohort="APS III: " + nm, n=len(d), events=int(d[TARGET].sum()),

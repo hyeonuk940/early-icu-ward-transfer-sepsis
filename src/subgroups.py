@@ -1,5 +1,5 @@
 """Subgroup discrimination + calibration + error rates.
-Locked LightGBM + locked threshold. eICU alternative cohort (representative) & internal test.
+Locked LightGBM + locked threshold. eICU primary cohort (representative) & internal test.
 Reports per subgroup: n, events, AUC(95%CI), cal slope/intercept, FPR, FNR at locked threshold.
 Subgroups: mechanical ventilation, age band, sex, race, CCI band."""
 import warnings; warnings.filterwarnings("ignore")
