@@ -4,7 +4,9 @@
 #  Their data use agreements prohibit redistribution. Obtain access
 #  at https://physionet.org and regenerate these files with sql/.
 # ─────────────────────────────────────────────────────────────
-data/
+data/*
+# The data dictionary lists column definitions only, no patient data.
+!data/DATA_DICTIONARY.md
 manuscript/
 scratch/
 
