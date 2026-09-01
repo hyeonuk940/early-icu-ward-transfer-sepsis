@@ -3,10 +3,11 @@
 Code and derived results for *Machine Learning Prediction of Early ICU-to-Ward Transfer
 in Patients with Sepsis: Development and External Validation Using MIMIC-IV and eICU-CRD*.
 
-A LightGBM model is developed on MIMIC-IV and validated externally on eICU-CRD to predict
-**ICU-to-ward transfer between 24 and 72 hours after ICU admission, without ICU readmission
-or death within 7 days**, among patients meeting Sepsis-3 criteria by 24 hours and alive and
-still in the ICU at that landmark.
+A LightGBM model was developed in MIMIC-IV patients meeting Sepsis-3 criteria by the 24-hour
+landmark and externally validated in eICU-CRD using a primary APACHE admission diagnosis-based
+sepsis/septic shock cohort and a Sepsis-3 sensitivity cohort. The model predicts ICU-to-ward
+transfer between 24 and 72 hours after ICU admission without ICU readmission or death within
+7 days after transfer.
 
 The repository holds the extraction SQL, the analysis code and the aggregate results the
 paper reports. Results and their interpretation are in the paper; this file describes the
