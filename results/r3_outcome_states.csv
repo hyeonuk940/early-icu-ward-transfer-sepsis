@@ -1,0 +1,7 @@
+,MIMIC_n,MIMIC_pct,eICU_primary_n,eICU_primary_pct
+ward_transfer_safe,9239,40.5,5640,42.1
+ward_transfer_event,781,3.4,590,4.4
+direct_discharge,332,1.5,192,1.4
+other_disposition,76,0.3,439,3.3
+icu_death_72h,780,3.4,602,4.5
+still_in_icu,11617,50.9,5921,44.2

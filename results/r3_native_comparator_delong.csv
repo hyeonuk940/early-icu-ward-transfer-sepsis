@@ -1,0 +1,4 @@
+cohort,comparator,comp_auc,comp_ci,n_eval,d_transp_vs_comp,p_transp_vs_comp,d_full_vs_comp,p_full_vs_comp,d_transp_vs_full,p_transp_vs_full
+internal,"APS III (LR, dev-fit)",0.66,0.645-0.675,5762,0.141,9.156459980009881e-76,0.149,6.174478006286275e-98,-0.009,4.0612157758186645e-06
+eICU_primary,"APACHE-IVa (raw, native)",0.694,0.684-0.703,11768,0.056,6.838510830519121e-29,0.056,2.057546306435779e-45,0.019,1.8598702887589553e-14
+sepsis3,"APACHE-IVa (raw, native)",0.674,0.652-0.697,2231,0.065,7.964612498859005e-09,0.054,1.099147614061374e-09,0.026,1.4011460463516158e-06

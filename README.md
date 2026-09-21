@@ -13,6 +13,17 @@ The repository holds the extraction SQL, the analysis code and the aggregate res
 paper reports. Results and their interpretation are in the paper; this file describes the
 data, the code and how to run it.
 
+**Revision 3 (R3).** In response to peer review, a severity-score-free **transportable
+model** (55 predictors, locked threshold 0.414) was added as a co-primary model, the eICU
+benchmark was changed to the database-native APACHE-IVa score, and the supplementary
+analyses were expanded: mutually exclusive 72-h outcome states, threshold sweeps and
+recalibration, cohort overlap, hospital-level performance drivers, site-level
+calibration-in-the-large, MICE with m = 5, and an age-definition sensitivity analysis
+(MIMIC-IV age is `anchor_age`; see `sql/10_mimic_cohort.sql` and Table S23). The
+`src/r3_*.py` scripts, `results/r3_*.csv` files and `figures/figR3_*.png` files carry this
+revision. Everything runs on the same locked pipeline — identical hyperparameters,
+identical seed (42), no cohort re-extraction.
+
 ---
 
 ## Data
@@ -67,6 +78,19 @@ pip install -r requirements.txt
 Verified on Python 3.11 with scikit-learn 1.7.2, numpy 2.2.6, pandas 2.3.3,
 LightGBM 4.6.0, XGBoost 3.1.3, CatBoost 1.2.8, SHAP 0.49.1 and lifelines 0.30.3.
 
+The R3 scripts additionally require `statsmodels` and `psycopg2-binary` (see
+`requirements.txt`). The committed `r3_*.csv` results were generated on Python 3.13 with
+scikit-learn 1.6 and LightGBM 4.7; the manuscript numbers were verified against those
+files. An independent re-run of the six database-free R3 scripts (Python 3.11.15,
+scikit-learn 1.6.1, LightGBM 4.7.0, numpy 2.2.6, pandas 2.3.3, statsmodels 0.15.0)
+reproduced 12 of their 13 CSVs cell-for-cell, bootstrap CIs included. The exception is the
+XGBoost verification rows of `r3_rfxgb_verify.csv`, which are sensitive to the XGBoost
+version: AUCs are stable to three decimals but threshold-based metrics can shift by up to
+~0.02 in the smallest cohort, so reproduce them with the same XGBoost build if exact
+agreement is required. Four R3 scripts issue read-only PostgreSQL queries and read the
+connection from the environment variables `SEPSIS_DB_HOST`, `SEPSIS_DB_USER` and
+`SEPSIS_DB_PASSWORD` — no credentials are stored in the code.
+
 ---
 
 ## Running the analysis
@@ -100,7 +124,24 @@ python src/supplementary_figures.py
 python src/make_roc_figures.py
 python src/make_figures.py
 python src/make_flowchart.py
+
+# R3 revision analyses — run after the stages above
+# (r3_overlap_hospital_mice.py needs results/hospital_level_auc.csv from hospital_level.py)
+python src/r3_transportable.py           # FIRST: writes the transportable performance,
+                                         # threshold and per-hospital CSVs the others read
+python src/r3_threshold_recal.py         # reads r3_transportable_performance.csv
+python src/r3_table1_calfig.py
+python src/r3_transportable_thr_ci.py
+python src/r3_fig2_roc.py
+python src/r3_rfxgb_verify.py
+python src/r3_outcome_states.py          # DB (read-only)
+python src/r3_overlap_hospital_mice.py   # DB (read-only)
+python src/r3_age_cci_sitecitl.py        # DB (read-only)
+python src/r3_ci_completion.py           # DB (read-only, age part)
 ```
+
+The four DB scripts expect `SEPSIS_DB_HOST` / `SEPSIS_DB_USER` / `SEPSIS_DB_PASSWORD` in
+the environment and only run read-only queries.
 
 `nested_cv.py` (~9 min), `eleven_algos.py` (~8 min, dominated by the SVM) and
 `shap_rfe.py` (~6 min) are the slow steps; the rest finish in seconds to a minute.
@@ -154,13 +195,30 @@ Every script uses `random_state=42`. Confidence intervals are percentile bootstr
 | `make_figures.py` | Calibration, decision curves, hospital forest plot, SHAP-RFE curve, competing-risks CIF and SHAP summary. |
 | `make_flowchart.py` | Figure 1 — patient selection. Counts are hard-coded and must be updated if the cohort changes. |
 
+**R3 revision (peer-review response)**
+
+| Script | |
+|---|---|
+| `r3_transportable.py` | Full evaluation of the severity-score-free transportable model — discrimination, calibration CIs, DCA, subgroups, hospital-level meta-analysis — plus the database-native APACHE-IVa comparator, DeLong tests and score distributions. |
+| `r3_threshold_recal.py` | Threshold sweep (Table S10) and intercept / intercept-plus-slope recalibration (Table S12). |
+| `r3_outcome_states.py` | Mutually exclusive 72-h outcome states (Table S6) and alternative-outcome refits (Table S15). |
+| `r3_overlap_hospital_mice.py` | eICU cohort overlap (Table S13), hospital-characteristic drivers of performance (Table S21) and MICE with m = 5 (Table S16). |
+| `r3_table1_calfig.py` | Table 1 / S7 data (median, IQR, SMD) and the full-model calibration figure with CI bands. |
+| `r3_transportable_thr_ci.py` | Bootstrap CIs for the transportable row of Table 2 (sensitivity, specificity, PPV, NPV). |
+| `r3_fig2_roc.py` | Figure 2 regenerated: full + transportable + native comparator ROC. |
+| `r3_age_cci_sitecitl.py` | Anchor-year offset distribution, age-definition verification, corrected-age sensitivity (Table S23), no-CCI transportable sensitivity (Table S22) and site-level CITL. |
+| `r3_ci_completion.py` | Remaining calibration slope/intercept bootstrap CIs (Table 2 secondary models, S18/S19 subgroups, S22), locked-threshold net-benefit values and corrected-age Table 1 impact. |
+| `r3_rfxgb_verify.py` | Independent re-verification of the Table 2 RF and XGBoost rows. |
+
 ---
 
 ## Outputs
 
-`results/` holds 25 aggregate files (no patient-level data) and `figures/` holds the
+`results/` holds 53 aggregate files (no patient-level data) and `figures/` holds the
 published figures. Both are committed so the tables in the paper can be checked without
-PhysioNet access.
+PhysioNet access. The 28 `r3_*.csv` files are the source data for the R3 supplementary
+tables (S1–S23) and the revised Table 1, Table 2 and Figure 2; `figR3_*.png` are the R3
+supplementary figures.
 
 | File | Contents |
 |---|---|
@@ -184,4 +242,6 @@ PhysioNet access.
 
 The fitted model itself is not distributed. The locked hyperparameters
 (`learning_rate` 0.05, `n_estimators` 300, `num_leaves` 15, `min_child_samples` 50), the
-locked classification threshold (0.396) and the code needed to refit it are all here.
+locked classification thresholds (0.396 for the full model; 0.414 for the R3 transportable
+model, stored in `r3_transportable_performance.csv`) and the code needed to refit both are
+all here.

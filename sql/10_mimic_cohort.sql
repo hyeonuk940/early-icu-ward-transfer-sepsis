@@ -55,6 +55,9 @@ SELECT
   EXTRACT(EPOCH FROM (fe.icu_outtime - fe.icu_intime))/3600.0 AS icu_duration_hours,
   a.admittime, a.dischtime, a.deathtime, a.admission_type,
   a.discharge_location, a.hospital_expire_flag, a.race,
+  -- age = anchor_age: age at the de-identified anchor year (>89 coded as 91).
+  -- This definition is disclosed in the manuscript (Methods 2.4, Table 1 footnote,
+  -- Limitations); corrected-age sensitivity in Table S23 (src/r3_age_cci_sitecitl.py).
   p.gender, p.anchor_age AS age, p.anchor_year_group, p.dod,
   s.suspected_infection_time, s.sofa_time, s.sofa_score,
   -- landmark: sepsis criteria met by 24h after ICU intime

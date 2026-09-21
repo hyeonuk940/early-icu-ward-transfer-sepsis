@@ -1,0 +1,4 @@
+cohort,slope,slope_ci,intercept,intercept_ci
+internal,0.971,0.917-1.030,-0.17,-0.239--0.103
+eICU_primary,0.741,0.706-0.775,0.585,0.531-0.640
+sepsis3,0.631,0.561-0.698,0.31,0.174-0.439

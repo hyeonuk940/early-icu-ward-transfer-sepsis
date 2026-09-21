@@ -1,0 +1,11 @@
+outcome,model,dev_rate,internal_auc,internal_ci,internal_rate,eICU_primary_auc,eICU_primary_ci,eICU_primary_rate
+A_ward_transfer_any,full,46.7,0.808,0.797-0.819,35.6,0.721,0.713-0.730,46.5
+A_ward_transfer_any,transportable,46.7,0.801,0.790-0.812,35.6,0.744,0.736-0.752,46.5
+B_transfer_no_readmit,full,44.3,0.804,0.792-0.814,33.3,0.708,0.700-0.716,43.7
+B_transfer_no_readmit,transportable,44.3,0.796,0.784-0.807,33.3,0.735,0.726-0.743,43.7
+C_transfer_no_death,full,45.6,0.812,0.801-0.823,34.1,0.731,0.723-0.740,44.7
+C_transfer_no_death,transportable,45.6,0.805,0.793-0.816,34.1,0.753,0.744-0.760,44.7
+D_transfer_or_discharge,full,48.2,0.81,0.799-0.821,36.9,0.73,0.721-0.738,48.0
+D_transfer_or_discharge,transportable,48.2,0.804,0.793-0.815,36.9,0.753,0.745-0.760,48.0
+primary (reference),full,43.3,0.809,0.798-0.820,32.1,0.726,0.718-0.734,42.1
+primary (reference),transportable,43.3,0.8,0.789-0.812,32.1,0.745,0.736-0.753,42.1

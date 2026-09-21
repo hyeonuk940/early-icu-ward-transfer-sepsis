@@ -1,0 +1,5 @@
+cohort,n,missing_pct,mean,sd,median,q1,q3,min,max
+MIMIC dev (APS III),17063,0.0,49.5,21.9,46.0,34.0,61.0,7.0,173.0
+MIMIC internal test (APS III),5762,0.0,53.2,22.7,49.0,37.0,66.0,8.0,184.0
+eICU primary (APACHE-IVa),13384,12.1,70.2,25.9,67.0,52.0,85.0,9.0,193.0
+eICU Sepsis-3 (APACHE-IVa),2409,7.4,75.5,26.9,72.0,57.0,91.0,14.0,199.0
