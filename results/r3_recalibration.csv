@@ -1,0 +1,7 @@
+model,method,slope,intercept,brier,citl
+full,none (locked),0.741,0.585,0.234,0.859
+full,intercept-only,0.741,-0.052,0.209,0.0
+full,intercept+slope,0.999,-0.0,0.207,0.0
+transportable,none (locked),0.907,0.633,0.221,0.72
+transportable,intercept-only,0.907,-0.02,0.201,0.0
+transportable,intercept+slope,0.999,-0.0,0.201,0.0

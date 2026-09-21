@@ -1,0 +1,14 @@
+model,cohort,slope,slope_ci,intercept,intercept_ci
+Random Forest,internal,1.506,1.408-1.606,-0.14,-0.206--0.072
+Random Forest,eICU_primary,1.551,1.475-1.630,0.385,0.335-0.436
+Random Forest,sepsis3,1.498,1.325-1.670,0.23,0.097-0.357
+XGBoost,internal,0.914,0.861-0.972,-0.171,-0.238--0.106
+XGBoost,eICU_primary,0.614,0.585-0.643,0.702,0.648-0.764
+XGBoost,sepsis3,0.611,0.550-0.675,0.469,0.329-0.599
+full,internal,0.971,0.916-1.030,-0.17,-0.237--0.104
+full,eICU_primary,0.741,0.706-0.777,0.585,0.530-0.637
+full,sepsis3,0.631,0.565-0.709,0.31,0.175-0.445
+transportable,internal,0.937,0.879-0.992,-0.145,-0.214--0.070
+transportable,eICU_primary,0.907,0.870-0.942,0.633,0.583-0.686
+transportable,sepsis3,0.823,0.736-0.909,0.342,0.220-0.470
+APS III alone,internal,0.874,0.792-0.957,-0.439,-0.496--0.380

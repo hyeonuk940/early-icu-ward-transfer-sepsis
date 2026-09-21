@@ -1,0 +1,7 @@
+cohort,threshold,reference,nb_transportable,nb_reference,nb_treat_all
+internal,0.396,APS III LR (dev-fit),0.1126,0.0147,-0.1246
+internal,0.412,APS III LR (dev-fit),0.105,0.0036,-0.1552
+internal,0.414,APS III LR (dev-fit),0.1046,0.0018,-0.1592
+eICU_primary,0.396,APACHE-IVa LR (in-cohort),0.1228,0.1269,0.0421
+eICU_primary,0.412,APACHE-IVa LR (in-cohort),0.1123,0.1135,0.016
+eICU_primary,0.414,APACHE-IVa LR (in-cohort),0.1104,0.1124,0.0126

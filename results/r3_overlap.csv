@@ -1,0 +1,4 @@
+group,n,hospitals,age,male_pct,apache,vent_pct,cci,outcome_pct
+APACHE & Sepsis-3 (both),1394,75,67.7,54.6,75.1,28.1,1.9,38.2
+APACHE only,11990,200,66.1,50.3,69.6,26.1,2.0,42.6
+Sepsis-3 only,1015,73,64.1,57.1,75.9,46.2,2.5,33.2

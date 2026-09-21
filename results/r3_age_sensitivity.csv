@@ -1,0 +1,7 @@
+model,cohort,auc_orig,auc_corrected,slope_orig,slope_corrected
+full,internal,0.809,0.81,0.971,0.986
+full,eICU_primary,0.726,0.726,0.741,0.741
+full,sepsis3,0.711,0.709,0.631,0.629
+transportable,internal,0.8,0.801,0.937,0.936
+transportable,eICU_primary,0.745,0.745,0.907,0.918
+transportable,sepsis3,0.738,0.736,0.823,0.822
